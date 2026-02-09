@@ -115,3 +115,24 @@ The project produces:
   - Velocity and pressure errors
 
 These outputs allow both **quantitative** and **qualitative** assessment of operator learning performance.
+
+---
+
+## How to Run
+
+### 1. Start Temporal Server
+
+`temporal server start-dev`
+
+---
+
+### 2. Start Worker (GPU node)
+
+`python worker.py`
+
+---
+
+### 3. Run Workflow
+
+`python run_workflow.py`
+
