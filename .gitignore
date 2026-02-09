@@ -7,10 +7,6 @@ __pycache__/
 .venv/
 venv/
 
-# Outputs
-outputs/
-*.png
-
 # Data
 *.npz
 
