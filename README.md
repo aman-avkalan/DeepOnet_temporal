@@ -89,45 +89,6 @@ This enables:
 
 ---
 
-## Temporal Workflow Design
-
-The project uses **Temporal** to manage the training lifecycle.
-
-### Why Temporal?
-
-- GPU training jobs are long-running and failure-prone
-- Temporal provides:
-  - Automatic retries
-  - Deterministic execution
-  - Activity-level fault isolation
-  - Clear separation of orchestration and computation
-
-### Workflow Structure
-
-- **Workflow**
-  - Invokes the DeepONet training activity
-  - Acts as the durable controller
-
-- **Activity**
-  - Loads data
-  - Trains the DeepONet for a fixed number of epochs
-  - Logs loss per epoch
-  - Runs post-training inference
-  - Saves visualization artifacts
-
-All heavy computation is isolated inside the activity, keeping the workflow deterministic and lightweight.
-
----
-
-## Training Behavior
-
-- Training runs for a fixed number of epochs
-- Mean-squared error loss is used for all output channels
-- Loss is printed at every epoch for real-time observability
-- Coordinates are precomputed and reused for efficiency
-
----
-
 ## Post-Training Visualization
 
 After training, the activity performs inference on a single sample and generates a comprehensive diagnostic plot containing:
@@ -154,23 +115,3 @@ The project produces:
   - Velocity and pressure errors
 
 These outputs allow both **quantitative** and **qualitative** assessment of operator learning performance.
-
----
-
-## Key Takeaways
-
-- Demonstrates operator learning for Navier–Stokes flow
-- Shows how DeepONet can learn full-field PDE solutions
-- Illustrates best practices for running ML training on Temporal
-- Clean separation between orchestration and computation
-- Reproducible and fault-tolerant ML workflow design
-
----
-
-## Intended Use
-
-This project serves as:
-- A reference implementation for DeepONet-based CFD surrogate modeling
-- A template for integrating scientific ML workloads with Temporal
-- A foundation for extending to multi-geometry or multi-resolution operator learning
-
