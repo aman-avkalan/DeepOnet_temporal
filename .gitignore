@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Large data
+*.npz
+*.pt
+*.pth
+*.ckpt
+Dataset/
+data/
+
+# Outputs
+outputs/*.png
+
+# OS
+.DS_Store
